@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn1">创建元素</button>
+	<button id="btn0">删除元素</button>
+	<div class="box1">
+		<p class="objs">被删除的对象</p>
+	</div>
+	<hr>
+	
+	<button id="btn2">替换元素</button>
+	<button id="btn3">插入元素</button>
+	<div class="box2">
+
+		<span class="txt" style="color:red;">张学友</span>
+		
+		<div id="add">插入点</div>
+	</div>
+	<hr>
+
+	<button id="btn4">获取标签属性</button>
+	<button id="btn5">移除粗体</button>
+	<p class="vm" style="font-weight: 700;font-size: 24px;">一千个伤心的理由</p>
+	<hr>
+	<button id="btn6">加个背景</button>
+
+	
+	<script src="js/jquery.js"></script>
+	<script>
+		
+		var btn0 = document.getElementById('btn0');
+		var box1 = document.querySelector('.box1');
+		var btn1 = document.getElementById('btn1');
+		var btn2 = document.getElementById('btn2');
+		var btn3 = document.getElementById('btn3');
+		var btn4 = document.getElementById('btn4');
+		var btn5 = document.getElementById('btn5');
+		var btn6 = document.getElementById('btn6');
+		
+		var objs = document.getElementsByClassName('objs');
+		var bg1 = document.createElement('h2');
+		var html = document.createTextNode('创建元素并添加');
+		var add = document.getElementById('add');
+		var txts = document.getElementsByClassName('txt')[0];
+		var span = txts.cloneNode(true);
+		var p4 = document.createElement('p');
+		var vm = document.getElementsByClassName('vm')[0];
+		var box2s = document.getElementsByClassName('box2');
+
+		// 删除节点
+		btn0.onclick=function(){
+			box1.removeChild(objs[0]);
+		}
+		// 添加节点
+		btn1.onclick=function(){
+			bg1.appendChild(html);
+			box1.appendChild(bg1);
+		}
+		// 替换节点
+		btn2.onclick=function(){
+			span.innerHTML="刘德华";
+			box2s[0].replaceChild(span,txts);
+		}
+		// 在。。前插入节点
+		btn3.onclick=function(){
+			p4.innerHTML="王杰";
+			box2s[0].insertBefore(p4,add);
+		}
+		// 获取标签属性
+		btn4.onclick=function(){
+			var str = txts.getAttribute("style");
+			alert(str);
+		}
+		// 移除标签属性
+		btn5.onclick=function(){
+			vm.removeAttribute('style');
+		}
+		// 添加样式
+		btn6.onclick=function(){
+			box2s[0].setAttribute("style","background:skyblue;");
+		}
+
+
+
+		
+	</script>
+</body>
+</html>
