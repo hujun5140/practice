@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn1">创建元素</button>
+	<button id="btn0">删除元素</button>
+	<div class="box1">
+		<p class="objs">被删除的对象</p>
+	</div>
+	<hr>
+	
+	<button id="btn2">替换元素</button>
+	<button id="btn3">插入元素</button>
+	<div class="box2">
+
+		<p class="txt" style="color:red;">张学友</p>
+		
+		<div id="add">插入点</div>
+	</div>
+	<hr>
+
+	<button id="btn4">获取标签属性</button>
+	<button id="btn5">移除粗体</button>
+	<p class="vm" style="font-weight: 700;font-size: 24px;">一千个伤心的理由</p>
+	<hr>
+	<button id="btn6">加个背景</button>
+
+	
+	<script src="js/jquery.js"></script>
+	<script>
+		$(function(){
+			//删除节点
+			$('#btn0').click(function(){
+				$('.box1 .objs').remove();
+			})
+			// 添加节点
+			$('#btn1').click(function(){
+				$('<h2></h2>').html('创建元素并添加').appendTo('.box1');
+			})
+			// 克隆并替换节点
+			$('#btn2').click(function(){
+				$('.box2 .txt').clone(true).text('刘德华').replaceAll('.box2 .txt');
+			})
+			// 在。。前插入节点
+			$('#btn3').click(function(){
+				var wj = $('.box2 .txt').clone().text('王杰').attr('style','color:black;');
+				$('#add').before(wj);
+			})
+			// 标签行内属性获取
+			$('#btn4').click(function(){
+				var str = $('.box2 .txt').prop('style')[0];
+				alert(str);
+			})
+			// 标签行内属性移除
+			$('#btn5').click(function(){
+				$('.vm').css({'font-weight':'','font-size':''});
+			})
+			// 添加标签样式
+			$('#btn6').click(function(){
+				$('.box2').css('background','skyblue');
+			})
+		})		
+	</script>
+</body>
+</html>
