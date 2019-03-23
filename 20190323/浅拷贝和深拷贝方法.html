@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浅拷贝和深拷贝方法</title>
+</head>
+<body>
+	<script>
+		var obj = {
+			name:'zs',
+			age:23,
+			gender:'未知',
+			say:[11,22,33,44],
+			hai:{
+				name:'zs',
+				age:33,
+				gender:'男'
+			}
+		};
+		var obj1 = {};
+		// 浅拷贝方法,不能拷贝复杂数据类型
+		for(var item in obj){
+			// console.log(obj[item]);
+			obj1[item] = obj[item];
+		}
+		console.dir(obj1);
+		// 深拷贝
+		var obj2 = {};
+		function copyOf(x1,x2){
+			for(var key in x1){
+				if(x1[key] instanceof Array){
+					x2[key] = [];
+					copyOf(x1[key],x2[key])
+				} else if(x1[key] instanceof Object){
+					x2[key] = {};
+					copyOf(x1[key],x2[key]);
+				} else {
+					x2[key] = x1[key];
+				}
+			}
+		}
+		copyOf(obj,obj2);
+		console.dir(obj2);
+
+	</script>
+</body>
+</html>

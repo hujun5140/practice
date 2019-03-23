@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串方法</title>
+</head>
+<body>
+	<script>
+		var str = 'hongshanhu are you ok';
+		var str1 = str.indexOf('o');
+		var str2 = str.lastIndexOf('a');
+		console.log(str1); // 返回匹配到的字符索引1
+		console.log(str2); // 返回匹配到的字符索引11
+		var str3 = str.charAt(19);
+		console.log(str3); // 返回指定位置的字符串o
+		var str4 = str.concat('?');
+		console.log(str4); // hongshanhu are you ok?
+		var str5 = str.substring(1,12);
+		console.log(str5); // ongshanhu a 截取索引1到索引11,参数不接受负值
+		var str6 = str.slice(1,-12); // 第一个参数负值，从右往左截取数字个数,且不能有第二个参数
+		console.log(str6); // ongshanh 截取索引同substring，第二个参数可以接受负值，负值=负值+字符串长度
+		var str7 = str.substr(1,5); // (索引，长度),索引可以为负值，代表从右往左
+		console.log(str7); // ongsh 截取从1开始的索引，长度为5
+		var str8 = str.replace('a','x');
+		var str9 = str.replace(/a/g,'x');
+		console.log(str8); // hongshxnhu are you ok,默认替换一次
+		console.log(str9); // hongshxnhu xre you ok,使用正则替换所有
+		var str10 = str.toUpperCase();
+		var str11 = str10.toLowerCase();
+		console.log(str10);
+		console.log(str11);
+		var kk = str.split(' '); // 参数1指定字符串或正则，参数2指定数组的最大长度
+		console.log(kk); // ["hongshanhu", "are", "you", "ok"]
+		
+
+		var cc = '1';
+		var str12 = cc.padStart(5,'0');
+		console.log(str12);
+
+		var str13 = str.slice(-5);
+		console.log(str13,str.length); // ou ok
+		var str14 = str.substr(-8); // (索引，长度),索引可以为负值，代表从右往左，第二个参数无用
+		console.log(str14); // e you ok
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.left,
+	    .main,
+	    .right{ 
+	        position: relative;
+	        float: left;
+	        min-height: 450px;
+	    }
+	    .box {
+	        padding: 0 200px;
+	    }
+	    .left{
+	        margin-right: -200px;
+	        left: -200px;
+	        width: 200px;
+	        background: #A5704E;
+	    }
+	    .right{
+	        margin-left: -200px;
+	        right: -200px;
+	        width: 200px;
+	        background: #088FA5;
+	    }
+	    .main{ 
+	        width: 100%;
+	        background: #F1D4B6;
+
+	    }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="left">left区域</div>
+		<div class="main">main区域</div>
+		<div class="right">right区域</div>
+	</div>
+</body>
+</html>

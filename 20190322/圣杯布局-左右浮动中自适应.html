@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
+		.header {
+			width: 100%;
+			height: 80px;
+			line-height: 80px;
+			background-color: #ccc;
+		}
+		.box {
+			position: absolute;
+			top: 80px;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+		}
+		.left {
+			float: left;
+			width: 200px;
+			height: 100%;
+			background-color: green;
+		}
+		.right {
+			float: right;
+			width: 200px;
+			height: 100%;
+			background-color: orange;
+		}
+		.main {
+			margin: 0 200px;
+			height: 100%;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">header区域，全屏高度，绝对定位加四个方向取0</div>
+	<div class="box">
+		<div class="left">left区域，左浮动</div>
+		<div class="right">right区域，右浮动</div>
+		<div class="main">main区域,盒子要放在浮动的盒子后边</div>
+	</div>
+</body>
+</html>
