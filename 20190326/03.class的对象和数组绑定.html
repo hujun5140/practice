@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .toggle {
+            color: yellowgreen;
+        }
+        .active {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class="[active]" @click="gle">天下风云出我辈，</div>
+        <div :class="{toggle:toggle}" @click="tog">一入江湖岁月催。</div>
+        <div :style="styleobj" @click="tog1">皇图霸业谈笑中，</div>
+        <div :style="[styleobj,{fontSize:'20px'}]">不胜人生一场醉！</div>
+    </div>
+    <script src="./js/vue-2.4.0.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                toggle: false,
+                active:'',
+                styleobj: {
+                    color:"black"
+                }
+            },
+            methods:{
+                tog(){
+                    this.toggle = !this.toggle;
+                },
+                gle(){
+                    this.active = this.active==="active"? '': 'active';
+                },
+                tog1(){
+                    this.styleobj.color = this.styleobj.color==="black"? "blue" : "black";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

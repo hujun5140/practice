@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-TodoList</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="todoValue">
+        <button @click="addList">提交</button>
+        <ul>
+            <!-- <li v-for="item in list">{{item}}</li> -->
+            <!-- <todo-item :content="item" v-for="item in list"></todo-item> -->
+            <todo-item :content="item" :index="index" v-for="(item,index) in list" @delete="removelist"></todo-item>
+        </ul>
+    </div>
+    <script src="./js/vue-2.4.0.js"></script>
+    <script>
+        // 全局组件
+        // Vue.component('TodoItem',{
+        //     template: '<li>{{content}}</li>',
+        //     props:['content']
+        // }) 
+        var todoItem = {
+            template: '<li @click="todoremove">{{content}}</li>',
+            props:['content','index'],
+            methods:{
+                todoremove(){
+                    this.$emit('delete',this.index)
+                }
+            }
+        }    
+        var app = new Vue({
+            el:'#app',
+            data:{
+                list:[],
+                todoValue: ''
+            },
+            methods:{
+                addList(){
+                    this.list.push(this.todoValue);
+                    this.todoValue = '';
+                },
+                removelist(index){
+                    this.list.splice(index,1);
+                }
+            },
+            components:{ // 私有组件
+                todoItem
+            }
+        })
+    </script>
+</body>
+</html>

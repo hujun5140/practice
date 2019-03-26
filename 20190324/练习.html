@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="ID1" style="color:red;">标题1</h1>
+	<h2 id="ID2" style="font-size:20px;">fengzheng</h2>
+	<input type="button" value="提示">
+	<input type="button" value="关闭窗口" onclick="window.close()">
+	<script src="js/jquery.js"></script>
+	<script>
+	// 1). 输出 h1 标签的 html，html 标签的字体颜色，字号大小
+	// 2). 把 h2 的内容改成 h1 的内容
+	// 3). 在 body 标签里面添加一个 div 标签，div 标签的内容为'<p>fenzhen</p>'
+	// 4). 把上面添加的 div 的字体颜色变成红色，字号 15px
+	// 5). 把 input 的值变成：“危险提示”
+		$(function(){
+			var html = $('#ID1').html();
+			var html1 = $('#ID1').css('font-size');
+			console.log(html);
+			console.log(html1);
+			$('#ID2').html(html);
+			$('body').prepend("<div>fenzhen</div>");
+			$('body div').eq(0).css({"color":"red","font-size":"15px"});
+			$('input:button').eq(0).val('危险提示');
+			// var newWindow = window.open("http://www.hao123.com","width:500px;height:400px");
+			var w = window.innerWidth;
+			var h = window.innerHeight;
+			alert(w+'--'+h);
+			console.log(eval(18*19+20));
+			
+		})
+	</script>
+</body>
+</html>

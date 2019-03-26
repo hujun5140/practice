@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <template v-for="(item,index) in list" :key="item.id">
+            <div>{{ item.name }}--{{ index }}</div>
+            <span>{{ item.name }}</span>
+        </template>
+        <!-- <div v-for="(item,key,index) of userInfo">
+            {{item}}--{{key}}--{{index}}
+        </div> -->
+    </div>
+    <script src="./js/vue-2.4.0.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {id:1,name:'zs'},
+                    {id:2,name:'ls'},
+                    {id:3,name:'zl'}
+                ],
+                userInfo:{
+                    name:'dell',
+                    age:19,
+                    gender:'男'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

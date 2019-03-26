@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <com :count="2" @bh="setdata"></com>
+        <com :count="3" @bh="setdata"></com>
+        <div>{{ todo }}</div>
+    </div>
+    <script src="./js/vue-2.4.0.js"></script>
+    <script>
+        Vue.component('com',{
+            template:'<div @click="add">{{number}}</div>',
+            data(){
+                return {
+                    number: this.count
+                }
+            },
+            props:['count'],
+            methods:{
+                add(){
+                    this.number += 2;
+                    this.$emit('bh',2);
+                }
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                total: 5
+            },
+            methods:{
+                setdata(data){
+                    this.total += data; 
+                }
+            }
+        })
+    </script>
+</body>
+</html>  
